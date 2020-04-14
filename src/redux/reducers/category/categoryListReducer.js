@@ -1,0 +1,12 @@
+import * as actionTypes from '../../actions/category/actionTypes';
+import initialState from './initialState';
+
+export function categoryListReducer(state = initialState.categories, action){
+    switch (action.type) {
+        case actionTypes.GET_CATEGORİES_SUCCESS:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+

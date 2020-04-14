@@ -1,4 +1,5 @@
 
 export default {
-    currentCategory:{name:'musti'}
+    currentCategory:{},
+    categories:[],
 }
