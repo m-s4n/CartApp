@@ -10,7 +10,6 @@ function getCategoriesSuccess(categories){
 
 export function getCategories(){
     return function(dispatch){
-        debugger;
         let url = 'http://localhost:4000/categories';
         return fetch(url)
             .then(response => response.json())

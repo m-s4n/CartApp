@@ -6,7 +6,6 @@ function getProductSuccess(products){
 
 export function getProducts(category){
     return function(dispatch){
-        debugger;
         let url = 'http://localhost:4000/products';
         if(category.id)
         {

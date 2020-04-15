@@ -6,6 +6,8 @@ import {getProducts} from '../../redux/actions/product/productActions';
 import {Table} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare} from '@fortawesome/free-regular-svg-icons';
+import {addToCart} from '../../redux/actions/cart/cartActions';
+import alertifyjs from 'alertifyjs';
 
 
 class ProductList extends Component {
@@ -14,6 +16,11 @@ class ProductList extends Component {
   }
   renderUnSelectedCategory() {
     return <h3><Badge color="warning">Products</Badge></h3>;
+  }
+
+  addToCart = (product) =>{
+    this.props.actions.addToCart(product);
+    alertifyjs.success(product.productName + ' added to Cart',3);
   }
 
   componentDidMount(){
@@ -43,7 +50,7 @@ class ProductList extends Component {
                   <td>{product.productName}</td>
                   <td>{product.unitPrice}</td>
                   <td>{product.unitsInStock}</td>
-                  <td><FontAwesomeIcon icon={faPlusSquare}></FontAwesomeIcon></td>
+                  <td><FontAwesomeIcon icon={faPlusSquare} onClick={() => this.addToCart(product)}></FontAwesomeIcon></td>
                 </tr>
               ))
             }
@@ -65,6 +72,7 @@ function mapDispatchToProps(dispatch){
   return {
     actions:{
       getProducts:bindActionCreators(getProducts,dispatch),
+      addToCart:bindActionCreators(addToCart,dispatch),
     }
   }
 }
