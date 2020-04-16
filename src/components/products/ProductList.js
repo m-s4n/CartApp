@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 import {addToCart} from '../../redux/actions/cart/cartActions';
 import alertifyjs from 'alertifyjs';
-
+import {Link} from 'react-router-dom';
 
 class ProductList extends Component {
   renderSelectedCategory() {
@@ -47,7 +47,7 @@ class ProductList extends Component {
               this.props.products.map(product => (
                 <tr key={product.id}>
                   <td>{product.id}</td>
-                  <td>{product.productName}</td>
+                  <td><Link to={'/saveproduct/' + product.id}>{product.productName}</Link></td>
                   <td>{product.unitPrice}</td>
                   <td>{product.unitsInStock}</td>
                   <td><FontAwesomeIcon icon={faPlusSquare} onClick={() => this.addToCart(product)}></FontAwesomeIcon></td>
