@@ -27,7 +27,7 @@ const SelectInput = ({
           );
         })}
       </select>
-      {error && <div className="alert alert-danger">{error}</div>} {/*  eğer hata varsa özelmiş*/}
+      {error && <div className="alert alert-danger">{error}</div>} 
     </div>
   );
 };
